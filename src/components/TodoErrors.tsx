@@ -29,15 +29,11 @@ export const TodoErrors: React.FC<Props> = ({
     <div
       className={classNames(
         'notification is-danger is-light has-text-weight-normal',
-        { hiden: errorMessage === TodoError.none },
+        { hiden: errorMessage === TodoError.none }
       )}
     >
       {/* eslint-disable-next-line */}
-      <button
-        type="button"
-        className="delete"
-        onClick={handleCloseError}
-      />
+      <button type='button' className='delete' onClick={handleCloseError} />
 
       {errorMessage}
     </div>

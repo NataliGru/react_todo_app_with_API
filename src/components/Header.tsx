@@ -8,7 +8,7 @@ type Props = {
   length: number;
   tempTodo: Todo | null;
   countActiveTodos: number;
-  handleAllToggle:() => Promise<void>;
+  handleAllToggle: () => Promise<void>;
   handleAddTodo: (todo: Todo) => Promise<void>;
   handleErrorMessage: (errorMessage: TodoError) => void;
 };
@@ -45,11 +45,9 @@ export const Header: React.FC<Props> = ({
       userId: USER_ID,
     };
 
-
-    handleAddTodo(newTodo)
-      .then(() => {
-        setTodoTitle('');
-      });
+    handleAddTodo(newTodo).then(() => {
+      setTodoTitle('');
+    });
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -59,31 +57,29 @@ export const Header: React.FC<Props> = ({
   };
 
   return (
-    <header className="todoapp__header">
+    <header className='todoapp__header'>
       {/* eslint-disable-next-line */}
       <button
-        type="button"
+        type='button'
         className={classNames('todoapp__toggle-all', {
-          active: (countActiveTodos === 0 && length > 0),
+          active: countActiveTodos === 0 && length > 0,
         })}
         onClick={handleAllToggle}
       />
 
-        <form onSubmit={handleSubmit}>
-          <div className="input-container">
-            <input
-              type="text"
-              className="todoapp__new-todo"
-              placeholder="What needs to be done?"
-              ref={inputRef}
-              value={todoTitle}
-              onChange={(event) => setTodoTitle(event.target.value)}
-              disabled={tempTodo !== null}
-            />
-          </div>
-        </form>
-
+      <form onSubmit={handleSubmit}>
+        <div className='input-container'>
+          <input
+            type='text'
+            className='todoapp__new-todo'
+            placeholder='What needs to be done?'
+            ref={inputRef}
+            value={todoTitle}
+            onChange={(event) => setTodoTitle(event.target.value)}
+            disabled={tempTodo !== null}
+          />
+        </div>
+      </form>
     </header>
   );
 };
-
