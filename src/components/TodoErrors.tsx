@@ -23,6 +23,7 @@ export const TodoErrors: React.FC<Props> = ({
     }
 
     return undefined;
+    // eslint-disable-next-line
   }, [errorMessage]);
 
   return (
