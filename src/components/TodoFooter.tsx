@@ -52,15 +52,14 @@ export const TodoFooter: React.FC<Props> = ({
         </a>
       </nav>
 
-      {hasCompletedTodos && (
-        <button
-          type="button"
-          className="todoapp__clear-completed"
-          onClick={handleDeleteCompletedTodo}
-        >
-          Clear completed
-        </button>
-      )}
+      <button
+        type="button"
+        className={classNames('todoapp__clear-completed', 
+          { 'hidden': !hasCompletedTodos })}
+        onClick={handleDeleteCompletedTodo}
+      >
+        Clear completed
+      </button>
     </footer>
   );
 };
